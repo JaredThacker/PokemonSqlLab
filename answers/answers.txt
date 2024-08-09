@@ -1,0 +1,13 @@
+select name from types;
+
+select name from pokemons where id = 45;
+
+select count(name) from pokemons;
+
+select count(name) from types;
+
+select count(secondary_type) from pokemons where secondary_type IS NOT NULL;
+
+select pokemons.name, types.name from pokemons left join types on pokemons.primary_type = types.id;
+
+select pokemons.name, types.name, pokemons.secondary_type from pokemons left join types on pokemons.secondary_type = types.id where pokemons.name = 'Rufflet';
