@@ -11,3 +11,7 @@ select count(secondary_type) from pokemons where secondary_type IS NOT NULL;
 select pokemons.name, types.name from pokemons left join types on pokemons.primary_type = types.id;
 
 select pokemons.name, types.name, pokemons.secondary_type from pokemons left join types on pokemons.secondary_type = types.id where pokemons.name = 'Rufflet';
+
+select pokemons.name from pokemons left join pokemon.pokemon_trainer on pokemons.id = pokemon_trainer.pokemon_id where trainerID = 303;
+
+select count(*) from pokemons where pokemons.secondary_type = 7;
