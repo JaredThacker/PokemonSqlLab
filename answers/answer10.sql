@@ -1,6 +1,6 @@
 -- What are all the primary types and how many pokemon have that type?
-select pokemons.name, t.name from pokemons join pokemon.types t on pokemons.primary_type = t.id;
--- or for each specific type and name
+select t.name, count(p.name) from pokemons p left join types as t on primary_type = t.id group by primary_type;
+-- or for each specific type and names
 select pokemons.name, t.name from pokemons join pokemon.types as t on pokemons.primary_type = t.id where primary_type = 1;
 select count(*) from pokemons join pokemon.types as t on pokemons.primary_type = t.id where primary_type = 1;
 select p.name, t.name from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 2;
