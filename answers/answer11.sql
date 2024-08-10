@@ -1,0 +1,2 @@
+-- -How many pokemon at level 100 does each trainer with at least one level 100 pokemone have? (Hint: your query should not display a trainer
+select pokemon_trainer.trainerID, count(pokemons.name) from pokemon_trainer left join pokemons on pokemon_id = pokemons.id where pokelevel = 100 group by pokemon_trainer.trainerID;

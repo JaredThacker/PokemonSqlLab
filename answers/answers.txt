@@ -26,8 +26,6 @@ select pokemons.name from pokemons left join pokemon.pokemon_trainer on pokemons
 select count(*) from pokemons where pokemons.secondary_type = 7;
 
 -What are all the primary types and how many pokemon have that type?
-select pokemons.name, t.name from pokemons join pokemon.types t on pokemons.primary_type = t.id;
-
 select pokemons.name, t.name from pokemons join pokemon.types as t on pokemons.primary_type = t.id where primary_type = 1;
 select count(*) from pokemons join pokemon.types as t on pokemons.primary_type = t.id where primary_type = 1;
 select p.name, t.name from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 2;
@@ -66,10 +64,10 @@ select p.name, t.name from pokemons as p join pokemon.types as t on p.primary_ty
 select count(*) from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 18;
 
 -How many pokemon at level 100 does each trainer with at least one level 100 pokemone have? (Hint: your query should not display a trainer
-
+select pokemon_trainer.trainerID, count(pokemons.name) from pokemon_trainer left join pokemons on pokemon_id = pokemons.id where pokelevel = 100 group by pokemon_trainer.trainerID;
 
 -How many pokemon only belong to one trainer and no other?
-
+select count(*) from (select p.name, count(p.name) from pokemons as p inner join pokemon_trainer pt on p.id = pt.pokemon_id group by pt.pokemon_id having count(pt.pokemon_id)=1) as subq;
 
 -Write a query that returns the following columns:
 Pokemon Name	Trainer Name	Level	Primary Type	Secondary Type
