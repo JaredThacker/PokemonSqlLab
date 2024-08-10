@@ -1,33 +1,6 @@
--What are all the types of pokemon that a pokemon can have?
-select name from types;
-
--What is the name of the pokemon with id 45?
-select name from pokemons where id = 45;
-
--How many pokemon are there?
-select count(name) from pokemons;
-
--How many types are there?
-select count(name) from types;
-
--How many pokemon have a secondary type?
-select count(secondary_type) from pokemons where secondary_type IS NOT NULL;
-
--What is each pokemon's primary type?
-select pokemons.name, types.name from pokemons left join types on pokemons.primary_type = types.id;
-
--What is Rufflet's secondary type?
-select pokemons.name, types.name, pokemons.secondary_type from pokemons left join types on pokemons.secondary_type = types.id where pokemons.name = 'Rufflet';
-
--What are the names of the pokemon that belong to the trainer with trainerID 303?
-select pokemons.name from pokemons left join pokemon.pokemon_trainer on pokemons.id = pokemon_trainer.pokemon_id where trainerID = 303;
-
--How many pokemon have a secondary type Poison
-select count(*) from pokemons where pokemons.secondary_type = 7;
-
--What are all the primary types and how many pokemon have that type?
+-- What are all the primary types and how many pokemon have that type?
 select pokemons.name, t.name from pokemons join pokemon.types t on pokemons.primary_type = t.id;
-
+-- or for each specific type and name
 select pokemons.name, t.name from pokemons join pokemon.types as t on pokemons.primary_type = t.id where primary_type = 1;
 select count(*) from pokemons join pokemon.types as t on pokemons.primary_type = t.id where primary_type = 1;
 select p.name, t.name from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 2;
@@ -64,14 +37,3 @@ select p.name, t.name from pokemons as p join pokemon.types as t on p.primary_ty
 select count(*) from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 17;
 select p.name, t.name from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 18;
 select count(*) from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 18;
-
--How many pokemon at level 100 does each trainer with at least one level 100 pokemone have? (Hint: your query should not display a trainer
-
-
--How many pokemon only belong to one trainer and no other?
-
-
--Write a query that returns the following columns:
-Pokemon Name	Trainer Name	Level	Primary Type	Secondary Type
-Pokemon's name	Trainer's name	Current Level	Primary Type Name	Secondary Type Name
-Sort the data by finding out which trainer has the strongest pokemon so that this will act as a ranking of strongest to weakest trainer. You may interpret strongest in whatever way you want, but you will have to explain your decision.
