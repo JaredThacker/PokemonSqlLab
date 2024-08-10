@@ -24,3 +24,23 @@ select pokemons.name from pokemons left join pokemon.pokemon_trainer on pokemons
 
 -How many pokemon have a secondary type Poison
 select count(*) from pokemons where pokemons.secondary_type = 7;
+
+-What are all the primary types and how many pokemon have that type?
+select pokemons.name, t.name from pokemons join pokemon.types t on pokemons.primary_type = t.id;
+
+select pokemons.name, t.name from pokemons join pokemon.types as t on pokemons.primary_type = t.id where primary_type = 1;
+select count(*) from pokemons join pokemon.types as t on pokemons.primary_type = t.id where primary_type = 1;
+select p.name, t.name from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 2;
+select count(*) from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 2;
+select p.name, t.name from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 3;
+select count(*) from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 3;
+select p.name, t.name from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 4;
+select count(*) from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 4;
+select p.name, t.name from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 5;
+select count(*) from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 5;
+select p.name, t.name from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 6;
+select count(*) from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 6;
+select p.name, t.name from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 7;
+select count(*) from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 7;
+select p.name, t.name from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 8;
+select count(*) from pokemons as p join pokemon.types as t on p.primary_type = t.id where primary_type = 8;
